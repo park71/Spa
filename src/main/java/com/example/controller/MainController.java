@@ -9,6 +9,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class MainController {
 
+    @GetMapping("/")
+    public String home(){
+        return "home";
+    }
     @GetMapping("/home")
     public String homePage(Model model, HttpSession session) {
         String username = (String) session.getAttribute("loginUsername");
