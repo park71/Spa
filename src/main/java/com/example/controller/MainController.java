@@ -6,23 +6,22 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @Controller
 public class MainController {
 
     @GetMapping("/")
-    public String home(){
-        return "home";
-    }
-   /*@GetMapping("/home")
-    public String homePage(Model model, HttpSession session) {
+    public Map<String, Object> homePage(HttpSession session) {
+        Map<String, Object> response = new HashMap<>();
         String username = (String) session.getAttribute("loginUsername");
         if (username != null) {
-            model.addAttribute("loggedIn", true);
-            model.addAttribute("name", username);
+            response.put("loggedIn", true);
+            response.put("name", username);
         } else {
-            model.addAttribute("loggedIn", false);
+            response.put("loggedIn", false);
         }
-        return "home"; // 굳이 웹 페이지로 리턴받을 필요없음 String 값을 ㅗ반한
+        return response; // JSON 형식으로 반환
     }
-*/
 }

@@ -17,6 +17,7 @@ public class UserDTO {
     private String name;
     private String password;
     private String email;
+    private String role;
     //private String phone_num;
    // private String school;
    // private String year;
@@ -27,6 +28,7 @@ public class UserDTO {
         userDTO.setName(userEntity.getName());
         userDTO.setPassword(userEntity.getPassword());
         userDTO.setEmail(userEntity.getEmail());
+        userDTO.setRole(userEntity.getRole());
        // userDTO.setPhone_num(userEntity.getPhone_num());
         //userDTO.setSchool(userEntity.getSchool());
        // userDTO.setYear(userEntity.getYear());

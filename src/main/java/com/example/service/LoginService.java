@@ -30,6 +30,7 @@ public class LoginService {
         data.setName(userDTO.getName());
         data.setPassword(bCryptPasswordEncoder.encode(userDTO.getPassword()));
         data.setEmail(userDTO.getEmail());
+        data.setRole(userDTO.getRole());
        /* data.setPhone_num(userDTO.getPhone_num()); // Assuming getPhoneNum() method
         data.setSchool(userDTO.getSchool());
         data.setYear(userDTO.getYear());

@@ -16,7 +16,6 @@ import java.util.Optional;
 
 @RestController
 @Slf4j
-@RequestMapping("/member")
 public class LoginController {
 
     @Autowired
@@ -31,6 +30,7 @@ public class LoginController {
     public ResponseEntity<String> saveProcess(@RequestBody UserDTO userDTO){
         System.out.println(userDTO.getName());
         boolean isSaved = loginService.save(userDTO);
+        System.out.println("회원가입절차");
         if (isSaved) {
             System.out.println("Save Success");
             return new ResponseEntity<>("회원가입 성공", HttpStatus.CREATED);
@@ -39,7 +39,11 @@ public class LoginController {
         }
     }
 
-
+    @GetMapping("/login")
+    public ResponseEntity<String> loginPage() {
+        String response = "{\"message\": \"Please log in\"}";
+        return ResponseEntity.ok(response);
+    }
 
     @PostMapping("/loginProc")
     public ResponseEntity<?> loginProcess(@RequestBody UserDTO userDTO, HttpSession session){

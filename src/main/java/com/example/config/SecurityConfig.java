@@ -6,6 +6,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 
 @EnableWebSecurity
 @Configuration
@@ -35,12 +36,12 @@ public class SecurityConfig {
                         .permitAll()
                 );
         http
-                .csrf((auth -> auth.disable()));
+                .csrf((AbstractHttpConfigurer::disable));
 
 
         http
                 .sessionManagement((auth) -> auth //다중 접속 세션
-                        .maximumSessions(4)
+                        .maximumSessions(100)
                         .maxSessionsPreventsLogin(false));
 
         http
@@ -51,6 +52,8 @@ public class SecurityConfig {
                         .logoutSuccessUrl("/home")
                         .permitAll()
                 );
+        http
+                .formLogin(AbstractHttpConfigurer::disable);
 
         return http.build();
     }

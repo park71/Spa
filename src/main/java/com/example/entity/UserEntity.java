@@ -20,6 +20,7 @@ public class UserEntity {
     private String password;
     private String email;
     private String sex;
+    private String role;
     //private String phone_num;
     //private String school;
    // private String year;

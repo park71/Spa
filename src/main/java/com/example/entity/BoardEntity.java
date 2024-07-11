@@ -7,7 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name="board")
+@Table(name="board") //게시물 DB
 public class BoardEntity {
 
     @Id
