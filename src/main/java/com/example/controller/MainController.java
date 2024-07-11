@@ -13,7 +13,7 @@ public class MainController {
     public String home(){
         return "home";
     }
-    @GetMapping("/home")
+   /*@GetMapping("/home")
     public String homePage(Model model, HttpSession session) {
         String username = (String) session.getAttribute("loginUsername");
         if (username != null) {
@@ -24,5 +24,5 @@ public class MainController {
         }
         return "home"; // 굳이 웹 페이지로 리턴받을 필요없음 String 값을 ㅗ반한
     }
-
+*/
 }

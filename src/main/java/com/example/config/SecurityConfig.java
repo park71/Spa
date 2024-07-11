@@ -20,7 +20,8 @@ public class SecurityConfig {
         http
 
                 .authorizeHttpRequests((auth) ->auth
-                        .requestMatchers("home","/login","/loginProc","/save","/saveProc","/login?error", "/css/**", "/js/**","/list").permitAll()
+                        .requestMatchers("home","/login","/loginProc","/save","/saveProc","/login?error", "/css/**", "/js/**","/list","/board/**","/board/list","/boardlist","/boardmodify","/board/modify/**",
+                                "/board/view","/message","/boardview","/board/file/**","/board/update","/board/writepro","/boardwrite").permitAll()
 //                        .requestMatchers("/admin/**").hasRole("ADMIN")
     //                    .requestMatchers("/my/**").hasAnyRole("ADMIN","USER")
                         .anyRequest().authenticated()
@@ -29,7 +30,7 @@ public class SecurityConfig {
         http
                 .formLogin((auth) -> auth.loginPage("/login")
                         .loginProcessingUrl("/loginProc")
-                        .defaultSuccessUrl("/home", true) // 로그인 성공 시 리다이렉트할 URL 설정
+                        .defaultSuccessUrl("/", true) // 로그인 성공 시 리다이렉트할 URL 설정
                         .failureUrl("/login?error")
                         .permitAll()
                 );
